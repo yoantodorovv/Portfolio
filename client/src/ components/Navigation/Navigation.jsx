@@ -3,6 +3,7 @@ import styles from './Navigation.module.scss'
 
 export const Navigation = () => {
     const initialState = {
+        main: false,
         about: false,
         education: false,
         techStack: false,
@@ -17,7 +18,12 @@ export const Navigation = () => {
     return (
         <div className={styles['wrapper']}>
             <div className={styles['logo']}>
-                <a href='#main'>Yoan Todorov</a>
+                <a 
+                    onClick={() => handleNavClick('main')}
+                    href='#main'
+                >
+                    Yoan Todorov
+                </a>
             </div>
             <nav className={styles['nav']}>
                 <ul>
