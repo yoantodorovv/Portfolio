@@ -1,0 +1,40 @@
+$text-color: #d7dce2;
+$prim-color: #ffcc66;
+
+.socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+
+    ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 5%;
+        list-style: none;
+        transition: .2s ease-out;
+
+        li {
+            color: $text-color;
+        }
+    
+        li:hover {
+            cursor: pointer;
+            color: $prim-color;
+        }
+    }
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+    transition: .2s ease-out;
+}
+
+.wrapper:hover {
+    cursor: pointer;
+    color: $prim-color;
+}
