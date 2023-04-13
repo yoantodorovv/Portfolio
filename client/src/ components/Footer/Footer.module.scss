@@ -5,18 +5,18 @@ $prim-color: #ffcc66;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 1em;
+    margin-bottom: .5em;
 
     ul {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
-        width: 5%;
         list-style: none;
-        transition: .2s ease-out;
 
         li {
+            padding: .5em;
             color: $text-color;
+            transition: .2s ease-out;
         }
     
         li:hover {
@@ -32,6 +32,7 @@ $prim-color: #ffcc66;
     align-items: center;
     flex-flow: column nowrap;
     transition: .2s ease-out;
+    padding-bottom: 2em;
 }
 
 .wrapper:hover {

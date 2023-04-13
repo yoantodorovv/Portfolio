@@ -13,7 +13,7 @@ export const Footer = () => {
     }
 
     return (
-        <>
+        <div>
             <div className={styles['socials']}>
                 <ul>
                     <li
@@ -36,6 +36,6 @@ export const Footer = () => {
             <div className={styles['wrapper']} onClick={() => onLinkClick(constants.GITHUB_REPO_URL)}>
                 <p>Designed & Built by Yoan Todorov</p>
             </div>
-        </>
+        </div>
     );
 }
