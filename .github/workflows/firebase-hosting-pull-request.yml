@@ -15,4 +15,4 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PORTFOLIO_6ADB8 }}'
           projectId: portfolio-6adb8
-          entryPoint: /home/runner/work/GoldenGlow/GoldenGlow/client
+          entryPoint: /home/runner/work/Portfolio/Portfolio/client
