@@ -1,35 +1,28 @@
 import styles from './Footer.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGithub, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons' 
+import { faGithub, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 
 import * as constants from '../../../public/constants/Footer'
 
 export const Footer = () => {
-
-    const onLinkClick = (url) => {
-        console.log(url);
-
-        window.open(url, "_blank");
-    }
-
     return (
         <div>
             <div className={styles['socials']}>
                 <ul>
-                    <li
-                        onClick={() => onLinkClick(constants.LINKED_IN_URL)}
-                    >
-                        <FontAwesomeIcon icon={faLinkedinIn} size="xl" />
+                    <li>
+                        <a href={constants.LINKED_IN_URL} target="_blank">
+                            <FontAwesomeIcon icon={faLinkedinIn} size="xl" />
+                        </a>
                     </li>
-                    <li
-                        onClick={() => onLinkClick(constants.GITHUB_URL)}
-                    >
-                        <FontAwesomeIcon icon={faGithub} size="xl" />
+                    <li>
+                        <a href={constants.GITHUB_URL} target="_blank">
+                            <FontAwesomeIcon icon={faGithub} size="xl" />
+                        </a>
                     </li>
-                    <li
-                        onClick={() => onLinkClick(constants.INSTAGRAM_URL)}
-                    >
-                        <FontAwesomeIcon icon={faInstagram} size="xl" />
+                    <li>
+                        <a href={constants.INSTAGRAM_URL} target="_blank">
+                            <FontAwesomeIcon icon={faInstagram} size="xl" />
+                        </a>
                     </li>
                 </ul>
             </div>

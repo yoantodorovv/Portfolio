@@ -16,12 +16,17 @@ $prim-color: #ffcc66;
         li {
             padding: .5em;
             color: $text-color;
-            transition: .2s ease-out;
-        }
-    
-        li:hover {
-            cursor: pointer;
-            color: $prim-color;
+
+            a {
+                text-decoration: none;
+                color: $text-color;
+                transition: .2s ease-out;
+            }
+
+            a:hover {
+                cursor: pointer;
+                color: $prim-color;
+            }
         }
     }
 }

@@ -1,4 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
+import { ref, getDownloadURL } from 'firebase/storage'
+import { storage } from '../../../services/firebase'
+
 import styles from './Navigation.module.scss'
 
 export const Navigation = () => {
@@ -10,10 +14,31 @@ export const Navigation = () => {
         workflow: false,
         contact: false,
     };
+    const [resumeUrl, setResumeUrl] = useState('');
+
+    const imageRef = ref(storage, 'common/YoanTodorovResume - Main.pdf')
+
+    useEffect(() => {
+        getDownloadURL(imageRef)
+            .then(url => {
+                setResumeUrl(url);
+            })
+            .catch(err => console.log(err))
+    }, []);
 
     const [isActive, setIsActive] = useState(initialState);
 
     const handleNavClick = (propName) => setIsActive({...initialState, [propName]: true});
+
+    const onResumeBtnClick = () => {
+        const newWindow = window.open(resumeUrl, "_blank");
+
+        if (!newWindow || newWindow.closed || typeof newWindow.closed == "undefined") {
+            //TODO: Sweetalert and download CV
+
+            console.log('no pop up');
+        }
+    }
 
     return (
         <div className={styles['wrapper']}>
@@ -85,6 +110,7 @@ export const Navigation = () => {
                     <li>
                         <button
                             type='button'
+                            onClick={onResumeBtnClick}
                         >
                             Resume
                         </button>

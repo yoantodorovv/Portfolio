@@ -49,8 +49,8 @@ $accent-color: #2f3b54;
 
     .arrow {
         color: $prim-color;
-        position: relative;
-        top: 7em;
+        position: absolute;
+        top: 85%;
         transition: .2s ease-in-out;
     }
 

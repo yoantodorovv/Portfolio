@@ -1,9 +1,25 @@
+import { useState, useEffect } from 'react';
+
+import { storage } from '../../../services/firebase';
+import { ref, getDownloadURL } from '@firebase/storage';
+
 import styles from './About.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
-import profilePic from '../../../public/DSC_1205.jpg'
 
 export const About = () => {
+    const [imageUrl, setImageUrl] = useState('');
+
+    const imageRef = ref(storage, 'common/DSC_1205.jpg')
+
+    useEffect(() => {
+        getDownloadURL(imageRef)
+            .then(url => {
+                setImageUrl(url);
+            })
+            .catch(err => console.log(err))
+    }, []);
+    
     return (
         <div id='about' className={styles['wrapper']}>
             <div className={styles['content']}>
@@ -31,7 +47,7 @@ export const About = () => {
                 </div>
             </div>
             <div className={styles['image']}>
-                <img src={profilePic} />
+                <img src={imageUrl} />
             </div>
         </div>
     );
