@@ -1,0 +1,65 @@
+$prim-text-color: #d7dce2;
+$secondary-text-color: #a2aabc;
+$prim-color: #ffcc66;
+$secondary-color: #ffcc662e;
+$accent-color: #2f3b54;
+$accent-secondary-color: #2f3b5433;
+
+@mixin content-wrapper($flex-direction, $flex-wrap) {
+    display: flex;
+    flex-flow: $flex-direction $flex-wrap;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+
+    .content-wrapper {
+        @include content-wrapper(column, nowrap);
+        width: 60%;
+
+        .header {
+            display: flex;
+            justify-content: flex-start;
+            flex-flow: column nowrap;
+
+            .line {
+                width: 50%;
+                margin-top: .5em;
+                border: 1px solid $accent-color;
+            }
+        }
+
+        .content-wrapper {
+            @include content-wrapper(column, nowrap);
+            width: 100%;
+            align-items: center;
+
+            .buttons {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 30%;
+
+                button {
+                    font-size: 20px;
+                    color: $prim-text-color;
+                    background-color: transparent;
+                    border: none;
+                    transition: .2s ease-out;
+                }
+
+                button:hover {
+                    cursor: pointer;
+                    color: $prim-color;
+                }
+
+                .active {
+                    color: $prim-color;
+                }
+            }
+        }
+    }
+}

@@ -15,6 +15,7 @@ export const Navigation = () => {
         contact: false,
     };
     const [resumeUrl, setResumeUrl] = useState('');
+    const [isActive, setIsActive] = useState(initialState);
 
     const imageRef = ref(storage, 'common/YoanTodorovResume - Main.pdf')
 
@@ -25,8 +26,6 @@ export const Navigation = () => {
             })
             .catch(err => console.log(err))
     }, []);
-
-    const [isActive, setIsActive] = useState(initialState);
 
     const handleNavClick = (propName) => setIsActive({...initialState, [propName]: true});
 
