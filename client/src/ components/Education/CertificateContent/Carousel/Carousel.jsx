@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Slider from 'react-slick';
 
@@ -10,19 +10,14 @@ export const Carousel = ({
     certificates,
     handleSetCurrentCertificate
 }) => {
-    const [currentCertificate, setCurrentCertificate] = useState(null);
-
     const afterChangeHandler = (slide) => {
-        // console.log(slide);
-        // console.log(certificates[slide]);
-
-        // handleSetCurrentCertificate(slide)
+        handleSetCurrentCertificate(certificates[slide])
     }
 
     const settings = {
         dots: true,
         infinite: true,
-        speed: 500,
+        speed: 1000,
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
@@ -31,7 +26,7 @@ export const Carousel = ({
 
     return (
         <Slider {...settings}>
-            {certificates.map(x => (
+            {certificates?.map(x => (
                 <div key={x.id} className={styles['cert-img-wrapper']}>
                     <img className={styles['cert-img']} src={x.imageUrl} />
                 </div>

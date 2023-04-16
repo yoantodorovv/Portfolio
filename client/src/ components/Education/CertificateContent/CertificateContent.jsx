@@ -12,39 +12,43 @@ export const CertificateContent = ({
     collectionFolder
 }) => {
     const [certificates, setCertificates] = useState([]);
-    const [imageCertificateObj, setImageCertificateObj] = useState({});
-    const [currentCertificate, setCurrentCertificate] = useState(null);
+    const [currentCertificate, setCurrentCertificate] = useState({});
     const collectionRef = collection(db, `${collectionFolder}`);
 
     useEffect(() => {
-        console.log('change');
-
         getDocs(collectionRef)
             .then(data => {
-                data.docs.forEach(x => {
-                    const imageRef = ref(storage, `certificates/${x.data().name}.png`)
+                const tempCert = data.docs.map(x => ({ ...x.data(), id: x.id }));
+
+                tempCert.forEach(x => {
+                    const imageRef = ref(storage, `certificates/${x.name}.png`)
 
                     getDownloadURL(imageRef)
                         .then(url => {
-                            setImageCertificateObj(state => ({...state, [x.data().name]: url}));
+                            x.imageUrl = url;
                         })
                         .catch(err => console.log(err))
                 })
 
-                handleSetCertificates(data);
+                setCertificates(tempCert);
             })
             .catch(err => console.log(err))
+
+        handleSetCurrentCertificate(certificates[0]);
     }, [collectionFolder]);
 
-    const handleSetCertificates = (data) => {
-        setCertificates(data.docs.map(x => {
-            console.log(imageCertificateObj);
-            
-            return ({ ...x.data(), id: x.id, imageUrl: imageCertificateObj[x.data().name]})
-        }))
-    }
-
     const handleSetCurrentCertificate = (certificate) => {
+        if (certificate == null) {
+            return;
+        }
+
+        const date = certificate.issuedOn.toDate();
+
+        const options = { month: "short", day: "numeric", year: "numeric" };
+        const formattedDate = date.toLocaleDateString("en-US", options);
+
+        certificate['formattedDate'] = formattedDate;
+
         setCurrentCertificate(certificate);
     }
 
@@ -55,10 +59,10 @@ export const CertificateContent = ({
             </div>
             <div className={styles['line']}></div>
             <div className={styles['certificate-information']}>
-                <h2>Name</h2>
+                <h2>{currentCertificate?.name}</h2>
                 <p>Issued By: {currentCertificate?.issuedBy}</p>
-                <p>Issued On: {currentCertificate?.issuedOn}</p>
-                <p>Grade: {currentCertificate?.Grade}</p>
+                <p>Issued On: {currentCertificate?.formattedDate}</p>
+                <p>Grade: {currentCertificate?.grade === 'number' ? currentCertificate?.grade.toFixed(2) : currentCertificate?.grade}</p>
             </div>
         </div>
     );
