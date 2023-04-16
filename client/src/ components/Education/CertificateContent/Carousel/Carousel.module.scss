@@ -1,0 +1,10 @@
+.cert-img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    .cert-img {
+        height: 60vh;
+        object-fit: cover;
+    }
+}

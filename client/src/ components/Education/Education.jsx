@@ -4,7 +4,7 @@ import styles from './Education.module.scss'
 import { CertificateContent } from './CertificateContent/CertificateContent';
 
 export const Education = () => {
-    const falsyState = {
+    const resetState = {
         'front-end': false,
         'back-end': false,
         english: false,
@@ -14,8 +14,12 @@ export const Education = () => {
         'back-end': false,
         english: false,
     });
+    const [collectionFolder, setCollectionFolder] = useState('front-end');
 
-    const onBtnClick = (propName) => setIsActive({...falsyState, [propName]: true});
+    const onBtnClick = (propName) => {
+        setIsActive({...resetState, [propName]: true});
+        setCollectionFolder(propName);
+    }
 
     return (
         <div id="education" className={styles['wrapper']}>
@@ -25,7 +29,7 @@ export const Education = () => {
                     <div className={styles['line']}></div>
                 </div>
                 <div className={styles['content-wrapper']}>
-                    <CertificateContent />
+                    <CertificateContent collectionFolder={collectionFolder} />
                     <div className={styles['buttons']}>
                         <button
                             type='button'
