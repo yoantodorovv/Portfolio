@@ -1,7 +1,8 @@
 import { useState } from 'react';
 
-import styles from './Education.module.scss'
 import { CertificateContent } from './CertificateContent/CertificateContent';
+
+import styles from './Education.module.scss'
 
 export const Education = () => {
     const resetState = {

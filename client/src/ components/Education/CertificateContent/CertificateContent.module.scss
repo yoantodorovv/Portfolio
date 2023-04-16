@@ -26,6 +26,35 @@ $accent-secondary-color: #2f3b5433;
 
     .certificate-information {
         width: 40%;
+        height: 70%;
         margin-left: 5em;
+
+        h2 {
+            margin-bottom: 1em;
+        }
+
+        p {
+            margin-bottom: .5em;
+            color: $secondary-text-color;
+        }
+
+        .highlight {
+            color: $prim-text-color;
+        }
+
+        .validity-link {
+            color: $prim-text-color;
+            text-decoration: none;
+            transition: .2s ease-out;
+
+            .icon {
+                margin-right: .5em;
+            }
+        }
+
+        .validity-link:hover {
+            cursor: pointer;
+            color: $prim-color;
+        }
     }
 }

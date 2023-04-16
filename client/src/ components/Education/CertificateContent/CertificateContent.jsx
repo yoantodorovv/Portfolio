@@ -7,16 +7,22 @@ import { ref, getDownloadURL } from '@firebase/storage';
 import { Carousel } from './Carousel/Carousel';
 
 import styles from './CertificateContent.module.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShieldHalved } from '@fortawesome/free-solid-svg-icons';
 
 export const CertificateContent = ({
     collectionFolder
 }) => {
-    const [certificates, setCertificates] = useState([]);
+    const [frontEndCertificates, setFrontEndCertificates] = useState([]);
+    const [backEndCertificates, setBackEndCertificates] = useState([]);
+    const [englishCertificates, setEnglishCertificates] = useState([]);
     const [currentCertificate, setCurrentCertificate] = useState({});
-    const collectionRef = collection(db, `${collectionFolder}`);
+    const frontEndCollectionRef = collection(db, `front-end`);
+    const backEndCollectionRef = collection(db, `back-end`);
+    const englishCollectionRef = collection(db, `english`);
 
     useEffect(() => {
-        getDocs(collectionRef)
+        getDocs(frontEndCollectionRef)
             .then(data => {
                 const tempCert = data.docs.map(x => ({ ...x.data(), id: x.id }));
 
@@ -30,20 +36,57 @@ export const CertificateContent = ({
                         .catch(err => console.log(err))
                 })
 
-                setCertificates(tempCert);
+                setFrontEndCertificates(tempCert);
+            })
+            .catch(err => console.log(err))
+
+        getDocs(backEndCollectionRef)
+            .then(data => {
+                const tempCert = data.docs.map(x => ({ ...x.data(), id: x.id }));
+
+                tempCert.forEach(x => {
+                    const imageRef = ref(storage, `certificates/${x.name}.png`)
+
+                    getDownloadURL(imageRef)
+                        .then(url => {
+                            x.imageUrl = url;
+                        })
+                        .catch(err => console.log(err))
+                })
+
+                setBackEndCertificates(tempCert);
+            })
+            .catch(err => console.log(err))
+
+        getDocs(englishCollectionRef)
+            .then(data => {
+                const tempCert = data.docs.map(x => ({ ...x.data(), id: x.id }));
+
+                tempCert.forEach(x => {
+                    const imageRef = ref(storage, `certificates/${x.name}.png`)
+
+                    getDownloadURL(imageRef)
+                        .then(url => {
+                            x.imageUrl = url;
+                        })
+                        .catch(err => console.log(err))
+                })
+
+                setEnglishCertificates(tempCert);
             })
             .catch(err => console.log(err))
 
         handleSetCurrentCertificate(certificates[0]);
-    }, [collectionFolder]);
+    }, []);
 
     const handleSetCurrentCertificate = (certificate) => {
+        console.log(certificate);
+
         if (certificate == null) {
             return;
         }
 
         const date = certificate.issuedOn.toDate();
-
         const options = { month: "short", day: "numeric", year: "numeric" };
         const formattedDate = date.toLocaleDateString("en-US", options);
 
@@ -52,6 +95,16 @@ export const CertificateContent = ({
         setCurrentCertificate(certificate);
     }
 
+    let certificates = [];
+
+    if (collectionFolder === 'front-end') {
+        certificates = frontEndCertificates;
+    } else if (collectionFolder === 'back-end') {
+        certificates = backEndCertificates;
+    } else if (collectionFolder === 'english') {
+        certificates = englishCertificates;
+    }
+    
     return (
         <div className={styles['content']}>
             <div className={styles['carousel']}>
@@ -60,9 +113,13 @@ export const CertificateContent = ({
             <div className={styles['line']}></div>
             <div className={styles['certificate-information']}>
                 <h2>{currentCertificate?.name}</h2>
-                <p>Issued By: {currentCertificate?.issuedBy}</p>
-                <p>Issued On: {currentCertificate?.formattedDate}</p>
-                <p>Grade: {currentCertificate?.grade === 'number' ? currentCertificate?.grade.toFixed(2) : currentCertificate?.grade}</p>
+                <p>Issued By: <span className={styles['highlight']}>{currentCertificate?.issuedBy}</span></p>
+                <p>Issued On: <span className={styles['highlight']}>{currentCertificate?.formattedDate}</span></p>
+                <p>Grade: <span className={styles['highlight']}>{!isNaN(currentCertificate?.grade) ? `${currentCertificate?.grade.toFixed(2)} / 6.00` : currentCertificate?.grade}</span></p>
+                <a className={styles['validity-link']} href={currentCertificate?.validityLink} target='_blank'>
+                    <FontAwesomeIcon className={styles['icon']} icon={faShieldHalved} />
+                    Check Certificate Validity
+                </a>
             </div>
         </div>
     );
