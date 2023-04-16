@@ -104,7 +104,7 @@ export const CertificateContent = ({
     } else if (collectionFolder === 'english') {
         certificates = englishCertificates;
     }
-    
+
     return (
         <div className={styles['content']}>
             <div className={styles['carousel']}>
@@ -113,9 +113,26 @@ export const CertificateContent = ({
             <div className={styles['line']}></div>
             <div className={styles['certificate-information']}>
                 <h2>{currentCertificate?.name}</h2>
-                <p>Issued By: <span className={styles['highlight']}>{currentCertificate?.issuedBy}</span></p>
-                <p>Issued On: <span className={styles['highlight']}>{currentCertificate?.formattedDate}</span></p>
-                <p>Grade: <span className={styles['highlight']}>{!isNaN(currentCertificate?.grade) ? `${currentCertificate?.grade.toFixed(2)} / 6.00` : currentCertificate?.grade}</span></p>
+                <p className={styles['regular-p']}>Issued By: <span className={styles['highlight']}>{currentCertificate?.issuedBy}</span></p>
+                <p className={styles['regular-p']}>Issued On: <span className={styles['highlight']}>{currentCertificate?.formattedDate}</span></p>
+                <p className={styles['regular-p']}>Grade: <span className={styles['highlight']}>{!isNaN(currentCertificate?.grade) ? `${currentCertificate?.grade.toFixed(2)} / 6.00` : currentCertificate?.grade}</span></p>
+                <p className={styles['regular-p']}>Description: <span className={styles['highlight']}>{currentCertificate?.description}</span></p>
+                {
+                    collectionFolder !== 'english'
+                        ? (
+                            <div className={styles['certificate-skills']}>
+                                <h3>Skills</h3>
+                                <div className={styles['skills-wrapper']}>
+                                    {currentCertificate?.skills?.map(x => (
+                                        <div key={x} className={styles['element']}>
+                                           <p>{x}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )
+                        : <div className={styles['certificate-skills']}></div>
+                }
                 <a className={styles['validity-link']} href={currentCertificate?.validityLink} target='_blank'>
                     <FontAwesomeIcon className={styles['icon']} icon={faShieldHalved} />
                     Check Certificate Validity

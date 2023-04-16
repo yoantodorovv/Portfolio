@@ -36,7 +36,7 @@ export const Carousel = ({
         speed: 200,
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay: false,
+        autoplay: true,
         afterChange: afterChangeHandler,
         centerMode: true,
     };
