@@ -4,7 +4,34 @@ $secondary-color: #ffcc662e;
 $accent-color: #2f3b54;
 
 .wrapper {
-    width: 100%;
-    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
     margin-top: 10em;
+
+    .content-wrapper {
+        display: flex;
+        flex-flow: column nowrap;
+        width: 60%;
+        height: 100%;
+
+        .header {
+            display: flex;
+            align-items: flex-end;
+            flex-flow: column nowrap;
+            margin-bottom: 1em;
+    
+            .line {
+                width: 50%;
+                margin-top: .5em;
+                border: 1px solid $accent-color;
+            }
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
 }

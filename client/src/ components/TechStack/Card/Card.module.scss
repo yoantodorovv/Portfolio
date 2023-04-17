@@ -1,0 +1,33 @@
+$prim-text-color: #d7dce2;
+$prim-color: #ffcc66;
+$secondary-color: #ffcc662e;
+$accent-color: #2f3b54;
+
+.wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: 30%;
+    padding: 1em;
+    margin-top: 1em;
+    color: #2f3b54;
+    background-color: $prim-text-color;
+    border-radius: 5px;
+
+    .line {
+        width: 80%;
+        margin-top: .5em;
+        border: 1px solid $accent-color;
+        margin-bottom: 1em;
+    }
+
+    .content {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+
+        .element {
+            padding: .5em;
+        }
+    }
+}

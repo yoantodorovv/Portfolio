@@ -80,8 +80,6 @@ export const CertificateContent = ({
     }, []);
 
     const handleSetCurrentCertificate = (certificate) => {
-        console.log(certificate);
-
         if (certificate == null) {
             return;
         }

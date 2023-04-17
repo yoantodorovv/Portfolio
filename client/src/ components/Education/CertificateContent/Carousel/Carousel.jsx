@@ -14,13 +14,10 @@ export const Carousel = ({
     const [currentCertificateSlide, setCurrentCertificateSlide] = useState(0);
 
     useEffect(() => {
-        console.log('is useEffect');
-
         if (currentCertificateSlide === 0) {
-            console.log('in');
+            setCurrentCertificateSlide(0);
             handleSetCurrentCertificate(certificates[0]);
         } else {
-            console.log('in else');
             handleSetCurrentCertificate(certificates[currentCertificateSlide]);
         }
     }, [certificates]);
@@ -37,6 +34,8 @@ export const Carousel = ({
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
+        autoplaySpeed: 5000,
+        pauseOnHover: true,
         afterChange: afterChangeHandler,
         centerMode: true,
         centerPadding: "25%",

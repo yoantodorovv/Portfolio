@@ -14,7 +14,8 @@ $accent-secondary-color: #2f3b5433;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    height: 100vh;
+    margin-top: 5em;
 
     .content-wrapper {
         @include content-wrapper(column, nowrap);
