@@ -4,7 +4,9 @@ import { CertificateContent } from './CertificateContent/CertificateContent';
 
 import styles from './Education.module.scss'
 
-export const Education = () => {
+export const Education = ({
+    educationRef
+}) => {
     const resetState = {
         'front-end': false,
         'back-end': false,
@@ -23,7 +25,7 @@ export const Education = () => {
     }
 
     return (
-        <div id="education" className={styles['wrapper']}>
+        <div ref={educationRef} id="education" className={styles['wrapper']}>
             <div className={styles['content-wrapper']}>
                 <div className={styles['header']}>
                     <h1>Education & Certification</h1>

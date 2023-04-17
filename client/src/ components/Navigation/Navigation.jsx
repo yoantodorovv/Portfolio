@@ -5,7 +5,9 @@ import { storage } from '../../../services/firebase'
 
 import styles from './Navigation.module.scss'
 
-export const Navigation = () => {
+export const Navigation = ({
+    scrollToRef,
+}) => {
     const initialState = {
         main: false,
         about: false,
@@ -27,7 +29,10 @@ export const Navigation = () => {
             .catch(err => console.log(err))
     }, []);
 
-    const handleNavClick = (propName) => setIsActive({...initialState, [propName]: true});
+    const handleNavClick = (propName) => {
+        scrollToRef(propName);
+        setIsActive({...initialState, [propName]: true});
+    }
 
     const onResumeBtnClick = () => {
         const newWindow = window.open(resumeUrl, "_blank");
@@ -44,7 +49,6 @@ export const Navigation = () => {
             <div className={styles['logo']}>
                 <a 
                     onClick={() => handleNavClick('main')}
-                    href='#main'
                 >
                     Yoan Todorov
                 </a>
@@ -55,7 +59,7 @@ export const Navigation = () => {
                         <a
                             onClick={() => handleNavClick('about')}
                             className={isActive.about ? styles['active'] : undefined}
-                            href='#about'>
+                        >
                                 <span className={styles['highlight']}>
                                     0.
                                 </span>
@@ -66,7 +70,7 @@ export const Navigation = () => {
                         <a
                             onClick={() => handleNavClick('education')}
                             className={isActive.education ? styles['active'] : undefined}
-                            href='#education'>
+                        >
                                 <span className={styles['highlight']}>
                                     1.
                                 </span>
@@ -77,7 +81,7 @@ export const Navigation = () => {
                         <a
                             onClick={() => handleNavClick('techStack')}
                             className={isActive.techStack ? styles['active'] : undefined}
-                            href='#tech-stack'>
+                        >
                                 <span className={styles['highlight']}>
                                     2.
                                 </span>
@@ -88,7 +92,7 @@ export const Navigation = () => {
                         <a
                             onClick={() => handleNavClick('workflow')}
                             className={isActive.workflow ? styles['active'] : undefined}
-                            href='#workflow'>
+                        >
                                 <span className={styles['highlight']}>
                                     3.
                                 </span>
@@ -99,7 +103,7 @@ export const Navigation = () => {
                         <a
                             onClick={() => handleNavClick('contact')}
                             className={isActive.contact ? styles['active'] : undefined}
-                            href='#contact'>
+                        >
                                 <span className={styles['highlight']}>
                                     4.
                                 </span>

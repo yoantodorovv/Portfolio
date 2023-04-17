@@ -7,7 +7,9 @@ import styles from './About.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
-export const About = () => {
+export const About = ({
+    aboutRef
+}) => {
     const [imageUrl, setImageUrl] = useState('');
 
     const imageRef = ref(storage, 'common/DSC_1205.jpg')
@@ -21,7 +23,7 @@ export const About = () => {
     }, []);
     
     return (
-        <div id='about' className={styles['wrapper']}>
+        <div ref={aboutRef} id='about' className={styles['wrapper']}>
             <div className={styles['content']}>
                 <div className={styles['main-text']}>
                     <h2>Hi, my name is Yoan. It's great to meet you!</h2>

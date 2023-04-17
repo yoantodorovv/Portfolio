@@ -39,6 +39,8 @@ export const Carousel = ({
         autoplay: true,
         afterChange: afterChangeHandler,
         centerMode: true,
+        centerPadding: "25%",
+        fade: true,
     };
 
     return (
