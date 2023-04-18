@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { db, storage } from '../../../../services/firebase';
 import { getDocs, collection } from '@firebase/firestore';
@@ -17,6 +17,7 @@ export const CertificateContent = ({
     const [backEndCertificates, setBackEndCertificates] = useState([]);
     const [englishCertificates, setEnglishCertificates] = useState([]);
     const [currentCertificate, setCurrentCertificate] = useState({});
+    const sliderRef = useRef(null);
     const frontEndCollectionRef = collection(db, `front-end`);
     const backEndCollectionRef = collection(db, `back-end`);
     const englishCollectionRef = collection(db, `english`);
@@ -93,6 +94,16 @@ export const CertificateContent = ({
         setCurrentCertificate(certificate);
     }
 
+    const handleHover = (action) => {
+        if (sliderRef.current) {
+            if (action === 'pause') {
+                sliderRef.current.slickPause();
+            } else if (action === 'play') {
+                sliderRef.current.slickPlay();
+            }
+        }
+    }
+
     let certificates = [];
 
     if (collectionFolder === 'front-end') {
@@ -106,10 +117,10 @@ export const CertificateContent = ({
     return (
         <div className={styles['content']}>
             <div className={styles['carousel']}>
-                <Carousel certificates={certificates} handleSetCurrentCertificate={handleSetCurrentCertificate} />
+                <Carousel sliderRef={sliderRef} certificates={certificates} handleSetCurrentCertificate={handleSetCurrentCertificate} />
             </div>
             <div className={styles['line']}></div>
-            <div className={styles['certificate-information']}>
+            <div onMouseEnter={() => handleHover('pause')} onMouseLeave={() => handleHover('play')} className={styles['certificate-information']}>
                 <h2>{currentCertificate?.name}</h2>
                 <p className={styles['regular-p']}>Issued By: <span className={styles['highlight']}>{currentCertificate?.issuedBy}</span></p>
                 <p className={styles['regular-p']}>Issued On: <span className={styles['highlight']}>{currentCertificate?.formattedDate}</span></p>

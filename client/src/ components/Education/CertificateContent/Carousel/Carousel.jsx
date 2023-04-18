@@ -8,6 +8,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 export const Carousel = ({
+    sliderRef,
     certificates,
     handleSetCurrentCertificate
 }) => {
@@ -27,6 +28,8 @@ export const Carousel = ({
         handleSetCurrentCertificate(certificates[slide])
     }
 
+    //TODO: Move upon attach
+
     const settings = {
         dots: true,
         infinite: true,
@@ -34,7 +37,7 @@ export const Carousel = ({
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 5000,
+        autoplaySpeed: 3000,
         pauseOnHover: true,
         afterChange: afterChangeHandler,
         centerMode: true,
@@ -43,7 +46,7 @@ export const Carousel = ({
     };
 
     return (
-        <Slider {...settings}>
+        <Slider ref={sliderRef} {...settings}>
             {certificates?.map(x => (
                 <div key={x.id} className={styles['cert-img-wrapper']}>
                     <img className={styles['cert-img']} src={x.imageUrl} />

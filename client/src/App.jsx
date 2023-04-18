@@ -7,6 +7,7 @@ import { About } from './ components/About/About'
 import { Contact } from './ components/Contact/Contact'
 import { Education } from './ components/Education/Education'
 import { TechStack } from './ components/TechStack/TechStack'
+import { Workflow } from './ components/Workflow/Workflow'
 
 function App() {
     const mainRef = useRef(null);
@@ -18,8 +19,6 @@ function App() {
 
     const scrollToRef = (propName) => {
         const scrollSettings = { behavior: "smooth" };
-
-        console.log(propName);
 
         switch (propName) {
             case 'main':
@@ -50,6 +49,7 @@ function App() {
             <About aboutRef={aboutRef} />
             <Education educationRef={educationRef} />
             <TechStack techStackRef={techStackRef}/>
+            <Workflow workflowRef={workflowRef} />
             <Contact contactRef={contactRef} />
             <Footer />
         </div>

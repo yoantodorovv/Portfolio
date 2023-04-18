@@ -38,7 +38,7 @@ export const Card = ({
             <div className={styles['line']}></div>
             <div className={styles['content']}>
                 {dbField?.stack?.map(x => (
-                    <div className={styles['element']}>
+                    <div key={x} className={styles['element']}>
                         <p>{x}</p>
                     </div>
                 ))}
