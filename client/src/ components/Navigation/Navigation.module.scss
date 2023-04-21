@@ -2,6 +2,7 @@ $prim-text-color: #d7dce2;
 $prim-color: #ffcc66;
 $secondary-color: #ffcc662e;
 $accent-color: #2f3b54;
+$bg-color: #171c28;
 
 .wrapper {
     display: flex;
@@ -9,6 +10,9 @@ $accent-color: #2f3b54;
     position: fixed;
     padding: 1em 5em;
     width: 100%;
+    background-color: $bg-color;
+    box-shadow: 0px 5px 5px #04060c;
+    z-index: 1;
 
     .logo {
         width: 30%;
