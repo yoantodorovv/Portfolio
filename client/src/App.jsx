@@ -7,14 +7,14 @@ import { About } from './ components/About/About'
 import { Contact } from './ components/Contact/Contact'
 import { Education } from './ components/Education/Education'
 import { TechStack } from './ components/TechStack/TechStack'
-import { Workflow } from './ components/Workflow/Workflow'
+import { Projects } from './ components/Projects/Projects'
 
 function App() {
     const mainRef = useRef(null);
     const educationRef = useRef(null);
     const aboutRef = useRef(null);
     const techStackRef = useRef(null);
-    const workflowRef = useRef(null);
+    const projectsRef = useRef(null);
     const contactRef = useRef(null);
 
     const scrollToRef = (propName) => {
@@ -33,8 +33,8 @@ function App() {
             case 'techStack':
                 techStackRef.current.scrollIntoView(scrollSettings);
                 break;
-            case 'workflow':
-                workflowRef.current.scrollIntoView(scrollSettings);
+            case 'projects':
+                projectsRef.current.scrollIntoView(scrollSettings);
                 break;
             case 'contact':
                 contactRef.current.scrollIntoView(scrollSettings);
@@ -49,7 +49,7 @@ function App() {
             <About aboutRef={aboutRef} />
             <Education educationRef={educationRef} />
             <TechStack techStackRef={techStackRef}/>
-            <Workflow workflowRef={workflowRef} />
+            <Projects projectsRef={projectsRef} />
             <Contact contactRef={contactRef} />
             <Footer />
         </div>

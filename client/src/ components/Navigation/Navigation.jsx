@@ -90,13 +90,13 @@ export const Navigation = ({
                     </li>
                     <li>
                         <a
-                            onClick={() => handleNavClick('workflow')}
+                            onClick={() => handleNavClick('projects')}
                             className={isActive.workflow ? styles['active'] : undefined}
                         >
                                 <span className={styles['highlight']}>
                                     3.
                                 </span>
-                                Workflow
+                                Projects
                         </a>
                     </li>
                     <li>
