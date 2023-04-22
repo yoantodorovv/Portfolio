@@ -25,55 +25,19 @@ export const CertificateContent = ({
     useEffect(() => {
         getDocs(frontEndCollectionRef)
             .then(data => {
-                const tempCert = data.docs.map(x => ({ ...x.data(), id: x.id }));
-
-                tempCert.forEach(x => {
-                    const imageRef = ref(storage, `certificates/${x.name}.png`)
-
-                    getDownloadURL(imageRef)
-                        .then(url => {
-                            x.imageUrl = url;
-                        })
-                        .catch(err => console.log(err))
-                })
-
-                setFrontEndCertificates(tempCert);
+                setFrontEndCertificates(data.docs.map(x => ({ ...x.data(), id: x.id })));
             })
             .catch(err => console.log(err))
 
         getDocs(backEndCollectionRef)
             .then(data => {
-                const tempCert = data.docs.map(x => ({ ...x.data(), id: x.id }));
-
-                tempCert.forEach(x => {
-                    const imageRef = ref(storage, `certificates/${x.name}.png`)
-
-                    getDownloadURL(imageRef)
-                        .then(url => {
-                            x.imageUrl = url;
-                        })
-                        .catch(err => console.log(err))
-                })
-
-                setBackEndCertificates(tempCert);
+                setBackEndCertificates(data.docs.map(x => ({ ...x.data(), id: x.id })));
             })
             .catch(err => console.log(err))
 
         getDocs(englishCollectionRef)
             .then(data => {
-                const tempCert = data.docs.map(x => ({ ...x.data(), id: x.id }));
-
-                tempCert.forEach(x => {
-                    const imageRef = ref(storage, `certificates/${x.name}.png`)
-
-                    getDownloadURL(imageRef)
-                        .then(url => {
-                            x.imageUrl = url;
-                        })
-                        .catch(err => console.log(err))
-                })
-
-                setEnglishCertificates(tempCert);
+                setEnglishCertificates(data.docs.map(x => ({ ...x.data(), id: x.id })));
             })
             .catch(err => console.log(err))
 
