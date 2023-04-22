@@ -1,0 +1,59 @@
+$prim-text-color: #d7dce2;
+$prim-color: #ffcc66;
+$accent-color: #5b6b8e;
+
+.project {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35vh;
+
+    img {
+        width: 50%;
+        border: 1px solid $prim-text-color;
+        filter: grayscale(30%);
+        transition: .2s ease;
+    }
+
+    img:hover {
+        cursor: pointer;
+        padding: .5em;
+        filter: grayscale(0%);
+        border: 2px solid $prim-text-color;
+    }
+
+    .text {
+        display: flex;
+        align-items: flex-end;
+        flex-flow: column nowrap;
+        margin-left: 1em;
+        text-align: justify;
+        width: 40%;
+
+        h2 {
+            margin-bottom: .5em;
+        }
+
+        p {
+            margin-bottom: .5em;
+        }
+
+        .tech-stack-element {
+            color: $accent-color;
+            
+            margin-left: 1em;
+        }
+
+        .refer {
+            a {
+                margin-left: 1em;
+                color: $prim-text-color;
+                transition: .2s ease-in;
+            }
+    
+            a:hover {
+                color: $prim-color;
+            }
+        }
+    }
+}
