@@ -13,13 +13,14 @@ $accent-color: #2f3b54;
     color: #2f3b54;
     background-color: $prim-text-color;
     border-radius: 5px;
+    text-align: center;
 
     .heading {
         display: flex;
         flex-flow: column nowrap;
 
         .icon {
-            padding: 1em;
+            padding: .5em;
         }
     }
 
@@ -39,5 +40,19 @@ $accent-color: #2f3b54;
         .element {
             padding: .5em;
         }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .wrapper {
+        height: inherit;
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .wrapper {
+        width: 90%;
+        font-size: 90%;
     }
 }

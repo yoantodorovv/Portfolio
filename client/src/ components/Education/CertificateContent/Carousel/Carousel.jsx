@@ -28,8 +28,6 @@ export const Carousel = ({
         handleSetCurrentCertificate(certificates[slide])
     }
 
-    //TODO: Move upon attach
-
     const settings = {
         dots: true,
         infinite: true,
@@ -41,7 +39,6 @@ export const Carousel = ({
         pauseOnHover: true,
         afterChange: afterChangeHandler,
         centerMode: true,
-        centerPadding: "25%",
         fade: true,
     };
 

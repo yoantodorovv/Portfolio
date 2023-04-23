@@ -6,5 +6,30 @@
     .cert-img {
         height: 60vh;
         object-fit: cover;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .cert-img-wrapper {
+        .cert-img {
+            height: 50vh;
+        }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .cert-img-wrapper {
+        .cert-img {
+            height: 40vh;
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .cert-img-wrapper {
+        .cert-img {
+            height: 25vh;
+        }
     }
 }

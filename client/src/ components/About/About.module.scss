@@ -12,7 +12,6 @@ $accent-color: #2f3b54;
 
     .content {
         width: 30%;
-        // border: 1px solid white;
 
         .main-text {
             margin-bottom: 1em;
@@ -20,7 +19,7 @@ $accent-color: #2f3b54;
             h2 {
                 margin-bottom: 1em;
             }
-    
+
             p {
                 color: $secondary-text-color;
                 font-size: 20px;
@@ -28,7 +27,9 @@ $accent-color: #2f3b54;
         }
 
         .details-text {
-            
+            display: flex;
+            flex-flow: column nowrap;
+
             h3 {
                 margin-bottom: .5em;
             }
@@ -74,8 +75,6 @@ $accent-color: #2f3b54;
                 }
             }
         }
-
-
     }
 
     .image {
@@ -85,5 +84,103 @@ $accent-color: #2f3b54;
         margin-left: 3em;
         border-radius: 5px;
         overflow: hidden;
+
+        img {
+            border-radius: 5px;
+        }
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .wrapper {
+        .content {
+            .main-text {
+                p {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .wrapper {
+        font-size: 90%;
+
+        .content {
+            .main-text {
+                p {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .wrapper {
+        flex-flow: column-reverse nowrap;
+        align-items: center;
+        font-size: 90%;
+        height: fit-content;
+
+        .content {
+            width: 60%;
+            margin-top: 2em;
+            text-align: center;
+
+            .main-text {
+                p {
+                    font-size: 18px;
+                }
+            }
+
+            .details-text {
+                align-items: center;
+            }
+        }
+
+        .image {
+            margin-left: 0em;
+            width: 50%;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .wrapper {
+        flex-flow: column-reverse nowrap;
+        align-items: center;
+        font-size: 90%;
+        height: fit-content;
+
+        .content {
+            width: 80%;
+            margin-top: 2em;
+            text-align: center;
+
+            .main-text {
+                p {
+                    font-size: 18px;
+                }
+            }
+
+            .details-text {
+                align-items: center;
+            }
+        }
+
+        .image {
+            margin-left: 0em;
+            width: 80%;
+
+            img {
+                width: 100%;
+            }
+        }
     }
 }

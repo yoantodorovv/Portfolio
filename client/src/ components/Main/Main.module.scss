@@ -23,7 +23,7 @@ $accent-color: #2f3b54;
             font-size: 60px;
             margin-bottom: .2em;
         }
-    
+
         .aim {
             color: $secondary-text-color;
             width: 70%;
@@ -61,4 +61,72 @@ $accent-color: #2f3b54;
 
 .highlight {
     color: $prim-color;
+}
+
+@media screen and (max-width: 1300px) {
+    .wrapper {
+        .content-wrapper {
+            h1 {
+                font-size: 50px;
+            }
+
+            .aim {
+                font-size: 18px;
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .wrapper {
+        font-size: 90%;
+
+        .content-wrapper {
+            width: 60%;
+
+            h1 {
+                font-size: 50px;
+            }
+
+            .aim {
+                font-size: 18px;
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .wrapper {
+        font-size: 70%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .wrapper {
+        width: 100%;
+
+        .content-wrapper {
+            
+            h1 {
+                font-size: 40px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .wrapper {
+        width: 100%;
+
+        .content-wrapper {
+            margin-left: 10em;
+            width: 70%;
+
+            h1 {
+                font-size: 30px;
+            }
+        }
+    }
 }

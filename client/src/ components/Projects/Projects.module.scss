@@ -28,3 +28,27 @@ $accent-color: #2f3b54;
         }
     }
 }
+
+@media screen and (max-width: 1500px) {
+    .wrapper {
+        .content-wrapper {
+            width: 80%;
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .wrapper {
+        .content-wrapper {
+            width: 90%;
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .wrapper {
+        .content-wrapper {
+            width: 90%;
+        }
+    }
+}
