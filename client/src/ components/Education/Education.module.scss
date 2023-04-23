@@ -66,3 +66,83 @@ $accent-secondary-color: #2f3b5433;
         }
     }
 }
+
+@media screen and (max-width: 1800px) {
+    .wrapper {
+        .content-wrapper {
+            width: 80%;
+        }
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .wrapper {
+        .content-wrapper {
+            width: 90%;
+        }
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .wrapper {
+        height: fit-content;
+        .content-wrapper {
+            height: fit-content;
+            width: 70%;
+
+            .content-wrapper {
+                .buttons {
+                    width: 50%;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .wrapper {
+        height: fit-content;
+        .content-wrapper {
+            height: fit-content;
+            width: 70%;
+
+            .content-wrapper {
+                .buttons {
+                    width: 70%;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .wrapper {
+        height: fit-content;
+        .content-wrapper {
+            height: fit-content;
+            width: 70%;
+
+            .content-wrapper {
+                .buttons {
+                    width: 90%;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .wrapper {
+        height: fit-content;
+        .content-wrapper {
+            height: fit-content;
+            width: 70%;
+
+            .content-wrapper {
+                .buttons {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

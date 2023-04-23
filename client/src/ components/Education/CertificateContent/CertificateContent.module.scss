@@ -89,3 +89,56 @@ $accent-secondary-color: #2f3b5433;
         }
     }
 }
+
+@media screen and (max-width: 1300px) {
+    .content {
+        flex-flow: column nowrap;
+        height: fit-content;
+
+        .carousel {
+            width: 70%;
+            transform: translateX(2.5em);
+        }
+
+        .certificate-information {
+            text-align: center;
+            margin: 2em 0em 0em;
+
+            .certificate-skills {
+                .skills-wrapper {
+                    justify-content: space-evenly;
+                    
+                    .element {
+                        margin: .5em 0em 0em 0em;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 950px) {
+    .content {
+        .carousel {
+            width: 80%;
+            transform: translateX(2em);
+        }
+
+        .certificate-information {
+            width: 70%;
+        }
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .content {
+        .carousel {
+            width: 100%;
+        }
+
+        .certificate-information {
+            width: 100%;
+        }
+    }
+}
