@@ -87,13 +87,22 @@ $accent-secondary-color: #2f3b5433;
 @media screen and (max-width: 1300px) {
     .wrapper {
         height: fit-content;
+
         .content-wrapper {
             height: fit-content;
             width: 70%;
 
             .content-wrapper {
+                flex-flow: column-reverse nowrap;
+
                 .buttons {
                     width: 50%;
+                    margin-bottom: 3em;
+
+                    button.active {
+                        padding-bottom: .5em;
+                        border-bottom: 1px solid $prim-color;
+                    }   
                 }
             }
         }
@@ -103,6 +112,7 @@ $accent-secondary-color: #2f3b5433;
 @media screen and (max-width: 850px) {
     .wrapper {
         height: fit-content;
+
         .content-wrapper {
             height: fit-content;
             width: 70%;
@@ -119,6 +129,7 @@ $accent-secondary-color: #2f3b5433;
 @media screen and (max-width: 550px) {
     .wrapper {
         height: fit-content;
+
         .content-wrapper {
             height: fit-content;
             width: 70%;
@@ -135,6 +146,7 @@ $accent-secondary-color: #2f3b5433;
 @media screen and (max-width: 400px) {
     .wrapper {
         height: fit-content;
+
         .content-wrapper {
             height: fit-content;
             width: 70%;
