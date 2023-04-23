@@ -35,7 +35,7 @@ $accent-color: #5b6b8e;
         }
 
         p {
-            font-size: 18px;
+            font-size: 20px;
             margin-bottom: .5em;
         }
 
@@ -80,6 +80,10 @@ $accent-color: #5b6b8e;
             margin: 2em 0em 0em 0em;
             text-align: center;
             width: 70%;
+
+            p {
+                font-size: 18px;
+            }
 
             .tech-stack {
                 width: 50%;
