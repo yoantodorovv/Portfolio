@@ -58,11 +58,29 @@ $accent-color: #2f3b54;
 
         .content-wrapper {
             width: 70%;
+
+            .header {
+                h1 {
+                    font-size: 25px;
+                }
+            }
         }
 
         .content {
             align-items: center;
             flex-flow: column nowrap;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .wrapper {
+        .content-wrapper {
+            .header {
+                h1 {
+                    font-size: 25px;
+                }
+            }
         }
     }
 }
