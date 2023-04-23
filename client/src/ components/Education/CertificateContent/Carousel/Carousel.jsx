@@ -37,8 +37,6 @@ export const Carousel = ({
         autoplay: false,
         pauseOnHover: true,
         afterChange: afterChangeHandler,
-        centerMode: true,
-        fade: true,
     };
 
     return (

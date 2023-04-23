@@ -24,7 +24,6 @@ export const Main = ({
                     Contact Me
                 </a>
             </div>
-            <a onClick={() => handleArrowClick('about')} ><FontAwesomeIcon className={styles['arrow']} icon={faArrowDownLong} size="2x"/></a>
         </div>
     );
 }
