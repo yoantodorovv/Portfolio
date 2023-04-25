@@ -41,10 +41,11 @@ $accent-color: #5b6b8e;
 
         .tech-stack {
             display: flex;
-            justify-content: space-between;
-            width: 70%;
+            justify-content: flex-end;
+            width: 100%;
 
             .tech-stack-element {
+                width: fit-content;
                 padding: 0em .5em;
                 color: $accent-color;
             }
@@ -59,7 +60,7 @@ $accent-color: #5b6b8e;
                 color: $prim-text-color;
                 transition: .2s ease-in;
             }
-    
+
             a:hover {
                 color: $prim-color;
             }
@@ -88,6 +89,7 @@ $accent-color: #5b6b8e;
 
             .tech-stack {
                 width: 50%;
+                justify-content: center;
             }
 
             .refer {
@@ -170,7 +172,7 @@ $accent-color: #5b6b8e;
 
         .text {
             text-align: center;
-            
+
             .tech-stack {
                 justify-content: space-around;
                 flex-wrap: wrap;
