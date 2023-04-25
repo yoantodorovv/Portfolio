@@ -13,7 +13,7 @@ export const Navigation = ({
         about: false,
         education: false,
         techStack: false,
-        workflow: false,
+        projects: false,
         contact: false,
     };
     const [resumeUrl, setResumeUrl] = useState('');
@@ -94,7 +94,7 @@ export const Navigation = ({
                     <li>
                         <a
                             onClick={() => handleNavClick('projects')}
-                            className={isActive.workflow ? styles['active'] : undefined}
+                            className={isActive.projects ? styles['active'] : undefined}
                         >
                             <span className={styles['highlight']}>
                                 3.
