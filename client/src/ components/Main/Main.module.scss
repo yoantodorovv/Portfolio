@@ -30,6 +30,16 @@ $accent-color: #2f3b54;
             font-size: 20px;
         }
 
+        .work-status {
+            color: $prim-text-color;
+            font-size: 18px;
+            margin-top: 1em;
+
+            span {
+                color: $prim-color;
+            }
+        }
+
         a {
             width: fit-content;
             margin-top: 3em;
@@ -73,6 +83,10 @@ $accent-color: #2f3b54;
             .aim {
                 font-size: 18px;
                 width: 100%;
+            }
+
+            .work-status {
+                font-size: 16px;
             }
         }
     }
