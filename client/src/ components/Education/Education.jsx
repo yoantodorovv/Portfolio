@@ -11,11 +11,13 @@ export const Education = ({
         'front-end': false,
         'back-end': false,
         english: false,
+        diplomas: false,
     }
     const [isActive, setIsActive] = useState({
         'front-end': true,
         'back-end': false,
         english: false,
+        diplomas: false,
     });
     const [collectionFolder, setCollectionFolder] = useState('front-end');
 
@@ -34,6 +36,13 @@ export const Education = ({
                 <div className={styles['content-wrapper']}>
                     <CertificateContent collectionFolder={collectionFolder} />
                     <div className={styles['buttons']}>
+                        <button
+                            type='button'
+                            onClick={() => onBtnClick('diplomas')}
+                            className={isActive.diplomas ? styles['active'] : undefined}
+                        >
+                            Diplomas
+                        </button>
                         <button
                             type='button'
                             onClick={() => onBtnClick('front-end')}

@@ -28,7 +28,7 @@ export const About = ({
                 <div className={styles['main-text']}>
                     <h2>Hi, my name is Yoan. It's great to meet you!</h2>
                     <p>
-                        As a driven and enthusiastic junior web developer, with passion in the .NET and React fields, I am constantly expanding my knowledge and honing my skills in order to create innovative and user-friendly web applications. With a passion for AI that I plan to pursue in my university studies, I am committed to staying at the forefront of technology and pushing boundaries. Let's work together to bring your web development ideas to life!
+                        As a driven and enthusiastic junior web developer, with passion in the .NET and React fields, I am constantly expanding my knowledge and honing my skills in order to create innovative and user-friendly web applications. With many interests, aside from web development, including hacking, investing & entepreneuship, I am committed to staying at the forefront of business & technology and keep pushing boundaries. Let's work together to bring your web development ideas to life!
                     </p>
                 </div>
                 <div className={styles['details-text']}>

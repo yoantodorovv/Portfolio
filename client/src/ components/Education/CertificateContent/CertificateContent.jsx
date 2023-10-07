@@ -16,11 +16,13 @@ export const CertificateContent = ({
     const [frontEndCertificates, setFrontEndCertificates] = useState([]);
     const [backEndCertificates, setBackEndCertificates] = useState([]);
     const [englishCertificates, setEnglishCertificates] = useState([]);
+    const [diplomasCertificates, setDiplomasCertificates] = useState([]);
     const [currentCertificate, setCurrentCertificate] = useState({});
     const sliderRef = useRef(null);
     const frontEndCollectionRef = collection(db, `front-end`);
     const backEndCollectionRef = collection(db, `back-end`);
     const englishCollectionRef = collection(db, `english`);
+    const diplomasCollectionRef = collection(db, `diplomas`);
 
     useEffect(() => {
         getDocs(frontEndCollectionRef)
@@ -40,6 +42,11 @@ export const CertificateContent = ({
                 setEnglishCertificates(data.docs.map(x => ({ ...x.data(), id: x.id })));
             })
             .catch(err => console.log(err))
+
+        getDocs(diplomasCollectionRef)
+            .then(data => {
+                setDiplomasCertificates(data.docs.map(x => ({...x.data(), id: x.id })));
+            });
 
         handleSetCurrentCertificate(certificates[0]);
     }, []);
@@ -76,6 +83,8 @@ export const CertificateContent = ({
         certificates = backEndCertificates;
     } else if (collectionFolder === 'english') {
         certificates = englishCertificates;
+    } else if (collectionFolder === 'diplomas') {
+        certificates = diplomasCertificates;
     }
 
     return (

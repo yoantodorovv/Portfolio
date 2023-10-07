@@ -19,7 +19,7 @@ export const Main = ({
                     I strive to create beautifully designed and intuitive software that solves real-world problems. With a passion for elegant and simple solutions, I am dedicated to crafting high-quality code that delivers exceptional user experiences.
                 </p>
                 <p className={styles['work-status']}>
-                    Work Status: <span>Unemployed</span> (Actively Applying)
+                    Work Status: <span>Junior Full-Stack Web Developer</span>  @ Distriba Ltd.
                 </p>
                 <a
                     onClick={() => handleArrowClick('contact')}
