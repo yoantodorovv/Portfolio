@@ -20,7 +20,7 @@ export const Navigation = ({
     const [isActive, setIsActive] = useState(initialState);
     const [isOpen, setIsOpen] = useState(false);
 
-    const imageRef = ref(storage, 'common/YoanTodorovResume - Main.pdf')
+    const imageRef = ref(storage, 'common/YoanTodorovResume.pdf')
 
     useEffect(() => {
         getDownloadURL(imageRef)
