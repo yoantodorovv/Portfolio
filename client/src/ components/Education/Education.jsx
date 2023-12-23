@@ -14,12 +14,12 @@ export const Education = ({
         diplomas: false,
     }
     const [isActive, setIsActive] = useState({
-        'front-end': true,
+        'front-end': false,
         'back-end': false,
         english: false,
-        diplomas: false,
+        diplomas: true,
     });
-    const [collectionFolder, setCollectionFolder] = useState('front-end');
+    const [collectionFolder, setCollectionFolder] = useState('diplomas');
 
     const onBtnClick = (propName) => {
         setIsActive({...resetState, [propName]: true});

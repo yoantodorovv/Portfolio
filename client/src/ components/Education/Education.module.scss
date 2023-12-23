@@ -41,9 +41,10 @@ $accent-secondary-color: #2f3b5433;
 
             .buttons {
                 display: flex;
-                justify-content: space-between;
+                justify-content: center;
+                flex-flow: row wrap;
                 align-items: center;
-                width: 30%;
+                width: 40%;
 
                 button {
                     margin-top: 2em;
