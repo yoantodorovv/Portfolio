@@ -83,11 +83,12 @@ $accent-color: #2f3b54;
         justify-content: flex-end;
         align-items: center;
         margin-left: 3em;
-        border-radius: 5px;
         overflow: hidden;
 
         img {
-            border-radius: 5px;
+            border-radius: 50px;
+            width: 500px;
+            object-fit: contain;
         }
     }
 }

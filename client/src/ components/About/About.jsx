@@ -12,7 +12,7 @@ export const About = ({
 }) => {
     const [imageUrl, setImageUrl] = useState('');
 
-    const imageRef = ref(storage, '91316947-E651-4D9A-AAFC-64119576AAEB.jpeg')
+    const imageRef = ref(storage, 'common/91316947-E651-4D9A-AAFC-64119576AAEB.jpeg')
 
     useEffect(() => {
         getDownloadURL(imageRef)
@@ -49,7 +49,7 @@ export const About = ({
                 </div>
             </div>
             <div className={styles['image']}>
-                <img src={imageUrl} />
+                <img src={imageUrl} alt="Me image" />
             </div>
         </div>
     );
