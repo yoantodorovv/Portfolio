@@ -13,13 +13,13 @@ export const Main = ({
     return (
         <div ref={mainRef} id='main' className={styles['wrapper']}>
             <div className={styles['content-wrapper']}>
-                <p className={`${styles['sub-heading']} ${styles['highlight']}`}>A JUNIOR,</p>
+                <p className={`${styles['sub-heading']} ${styles['highlight']}`}>A MID,</p>
                 <h1>Full-Stack Web Developer</h1>
                 <p className={styles['aim']}>
                     I strive to create beautifully designed and intuitive software that solves real-world problems. With a passion for elegant and simple solutions, I am dedicated to crafting high-quality code that delivers exceptional user experiences.
                 </p>
                 <p className={styles['work-status']}>
-                    Work Status: <span>Junior Full-Stack Web Developer</span>  @ Distriba Ltd.
+                    Work Status: <span>Full-Stack Web Developer</span>  @ Distriba Ltd.
                 </p>
                 <a
                     onClick={() => handleArrowClick('contact')}
